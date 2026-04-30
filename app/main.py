@@ -11,6 +11,6 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
 
 # root() runs whenever "/" path occurs. Route returns HTML. root() passes an instance of the Request object named request. Returns template instance.
-@app.get("/", response_class = HTMLResponse)
-def root(request: Request):
-    return render_page(request, "index.html")
+@app.get("/")
+async def root():
+    return {"message": "Hello World"}
